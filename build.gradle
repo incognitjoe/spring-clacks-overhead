@@ -1,0 +1,33 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'maven-publish'
+
+group = 'org.incognitjoe'
+version = '0.0.1'
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+        }
+    }
+}
+
+dependencies {
+    compile('org.springframework:spring-web:5.0.4.RELEASE')
+    compile('org.springframework:spring-core:5.0.4.RELEASE')
+    compile('org.springframework:spring-context:5.0.4.RELEASE')
+    compile('javax.servlet:javax.servlet-api:3.0.1')
+    compile('org.springframework:spring-webmvc:5.0.4.RELEASE')
+    testCompile('org.springframework.boot:spring-boot-starter-test:2.0.0.RELEASE')
+}
